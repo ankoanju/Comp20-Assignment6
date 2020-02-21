@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "qp_main.css">
+</head>
+<title>Quick Pick</title>
+
+<body>
+
+</br>
+<div id = "titletext">Quick Pick</div>
+</br></br>
+
+<div id = "lottotext">
+	<p id = "headerlottonums"></p>
+</div>
+<div id = "normaltext">
+	<p id = "lottonums"></p>
+</div>
+<div id = "lottotext">
+	<p id = "sortedlottonums"></p>
+</div>
+<div id = "normaltext">
+	<p id = "slottonums"></p>
+</div>
+</br></br>
+
+<form id = "numberform">
+	<div id = "entertext"> Enter 5 Numbers: </div>
+	<input type="text" id = "inputnums" placeholder = "Enter 5 numbers w/ spaces"><br></br>
+
+	<div id = "entertext"> Enter Lucky Number: </div>
+	<input type="text" id = "inputluckynum" placeholder = "Enter single integer no space"><br></br>
+
+	<button type = "button" onclick = "processData()"> Match </button>
+</form>
+
+<p id = "finaltext"></p>
+
+</br></br></br>
+
+<script language = "javascript">
+
+// Create array with 6 numbers
+var numbers = new Array(6);
+var sorted = new Array(5);
+var temp = new Array();
+
+// 5 random numbers from 1 to 48
+for (i = 0; i < numbers.length - 1; i++){
+	numbers[i] = (Math.round(Math.random() * 47 + 1));
+}
+
+// Create sorted array first to easily check for duplicates
+sorted = numbers.sort(function(a, b){return a-b});
+
+// Check if no duplicates; change one if there is
+// Get value to change in nonsorted array
+var valuechange = 0;
+var valueorig = 0;
+for (i = 0; i < sorted.length; i++){
+	if (sorted[i] == sorted[i + 1]){
+		sorted[i] = (Math.round(Math.random() * 47 + 1));
+		valueorig = sorted[i + 1];
+		valuechange = sorted[i];
+	}
+}
+
+// Update the unsorted one 
+for (i = 0; i < numbers.length - 1; i++){
+	if (numbers[i] == valueorig){
+		numbers[i] = valuechange;
+		break;
+	}
+}
+
+// Create a copy array for comparison later
+for (i = 0; i < numbers.length - 1; i++){
+	temp[i] = numbers[i];
+}
+
+// Lucky ball: 1 random number from 1 to 18 
+var luckyball = (Math.round(Math.random() * 17 + 1))
+numbers[5] = luckyball;
+document.getElementById("headerlottonums").innerHTML = "Lotto Numbers: ";
+document.getElementById("lottonums").innerHTML = numbers;
+
+
+// print sorted array 
+sorted.sort(function(a, b){return a-b});
+document.getElementById("sortedlottonums").innerHTML = "Sorted Lotto Numbers: ";
+document.getElementById("slottonums").innerHTML = sorted;
+
+
+function processData()
+{
+	var numsarray = new Array();
+	var numtext = document.getElementById('inputnums').value;
+	var userlucky = 0;
+	userlucky = document.getElementById('inputluckynum').value;
+	var isLucky = true;
+
+	numsarray = numtext.split(" ");
+
+	for (i = 0; i < numsarray.length; i++){
+		parseInt(numsarray[i]);
+	}
+
+	// Check if user matched lucky ball
+	if (userlucky == luckyball){
+		isLucky = true;
+	}else {
+		isLucky = false;
+	}
+
+	var counter = 0;
+
+	// Check if user numbers matches 
+	for (i = 0; i < temp.length; i++){
+		for (j = 0; j < numsarray.length; j++){
+			if (temp[i] == numsarray[j]){
+				counter++;
+			}
+		}
+	}
+
+	if (isLucky){
+		if(counter == 0){
+			document.getElementById("finaltext").innerHTML = "Congratulations! You win $4!";
+		}else if(counter == 1){
+			document.getElementById("finaltext").innerHTML = "Congratulations! You win $6!";
+		}else if(counter == 2){
+			document.getElementById("finaltext").innerHTML = "Congratulations! You win $25!";
+		}else if(counter == 3){
+			document.getElementById("finaltext").innerHTML = "Congratulations! You win $150!";
+		}else if(counter == 4){
+			document.getElementById("finaltext").innerHTML = "Congratulations! You win $5000!";
+		}else if(counter == 5){
+			document.getElementById("finaltext").innerHTML = "Congratulations! You win $7,000 a WEEK for LIFE!!";
+		}
+	}else{
+		if(counter == 0){
+			document.getElementById("finaltext").innerHTML = "Sorry :( No matches, try again later!";
+		}else if(counter == 1){
+			document.getElementById("finaltext").innerHTML = "Sorry :( No matches, try again later!";
+		}else if(counter == 2){
+			document.getElementById("finaltext").innerHTML = "Congratulations! You win $3!";
+		}else if(counter == 3){
+			document.getElementById("finaltext").innerHTML = "Congratulations! You win $20!";
+		}else if(counter == 4){
+			document.getElementById("finaltext").innerHTML = "Congratulations! You win $200!";
+		}else if(counter == 5){
+			document.getElementById("finaltext").innerHTML = "Congratulations! You win $25,000 a YEAR for LIFE!!!";
+		}
+	}
+}
+
+</script>
+
+</body>
+</html>

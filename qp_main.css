@@ -1,0 +1,80 @@
+body{
+	background-color: #A7CCED;
+	text-align: center;
+}
+
+#titletext 
+{
+	color: #304D6D;
+	text-shadow: 4px 3px 0px #82A0BC;
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 100px;
+	font-style: bold;
+	font-variant: small-caps;
+}
+
+#lottotext
+{
+	color: #FFF3B0;
+	letter-spacing: 2px;
+	text-shadow: 4px 3px 0px #335C67;
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 30px;
+}
+
+#entertext
+{
+	color: #335C67;
+	text-shadow: 4px 3px 0px #FFF3B0;
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 30px;
+
+}
+
+#normaltext
+{
+	color: #304D6D;
+	font-family: Tahoma, Geneva, sans-serif;
+	text-decoration: none;
+	font-style: normal;
+	font-variant: small-caps;
+	text-transform: lowercase;
+	font-size: 20px;
+}
+
+#finaltext
+{
+	color: #383333;
+	font-family: Tahoma, Geneva, sans-serif;
+	text-decoration: none;
+	font-style: normal;
+	font-variant: small-caps;
+	text-transform: lowercase;
+	font-size: 30px;
+}
+
+input[type=text]
+{
+	width: 175px;
+	height: 30px;
+	text-align: center;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+button 
+{
+	width: 100;
+	background-color: #545E75;
+	color: #FFFFFF;
+	font-family: Charcoal, sans-serif;
+	font-size: 15px;
+	padding: 17px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.5s;
+}

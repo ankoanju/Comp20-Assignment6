@@ -1,0 +1,20 @@
+Anju Ishizaki 
+Comp20 - Assignment 6: More Javascript Practice
+
+Q: What is your opinion of Javascript as a programming language?
+A: If you have a basic knowledge beforehand, I think Javascript is a 
+relatively easy language to learn and understand, because it is 
+very similar to C++. However, there are certain things that I find 
+difficult, not because I can't understand, but there are certain 
+functions that are associated with a particular effect. For 
+example, the toFixed and the split, I feel like I had to know
+their existence to be able to produce that specific effect. The main 
+thing I don't like about Javascript is that it has no data type.
+Because of this, when the assignment said pass in an array as a 
+parameter, I originally put Array name[] but when I searched, it 
+said to pass in just the name, name, and not even Array or the [].
+This was very weird and unnatural to me, and I'm scared that I will 
+accidently do this in my C++ homework. Otherwise I think Javascript
+is a relatively easy language, and when you are more focused on 
+HTML and CSS on web programming, I guess it is okay to be less
+lenient on the syntax. I also like how it doesn't involve pointers.

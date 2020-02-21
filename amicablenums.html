@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "a_main.css">
+</head>
+
+<title> Amicable Numbers </title>
+
+<body>
+
+</br>
+<div id = "titletext"> Amicable Numbers </div>
+</br> </br>
+
+<form id = "numberform">
+	<div id = "text"> First Number: </div>
+	<input type="text" id = "first_num" placeholder = "Enter an integer"><br></br>
+
+	<div id = "text"> Second Number: </div>
+	<input type="text" id = "second_num" placeholder = "Enter another integer"><br></br>
+
+	<button type = "button" onclick = "read_display()">Test Amicable</button>
+</form>
+
+<div id = "normaltext">
+	<p id = "displaynums"></p>
+	<p id = "infotext"></p>
+</div>
+<div id = "finaltext">
+	<p id = "output"></p>
+</div>
+
+
+<script language = "javascript">
+function read_display()
+{
+	var number = document.getElementById("first_num").value;
+	var testnumber = document.getElementById("second_num").value;
+
+	document.getElementById("displaynums").innerHTML = "You entered: " + number + " and " + testnumber;
+	document.getElementById("infotext").innerHTML = "Are they Amicable?";
+
+	// Comment out test for isFactor
+	// test_isFactor();
+
+	// Comment out test for addFactors
+	// test_addFactors();
+
+	// Comment out test for getFactors
+	// test_getFactors();
+
+	secondfactor = getFactors(testnumber);
+
+	if ((addFactors(getFactors(number))) == testnumber && (addFactors(getFactors(testnumber))) == number){
+		document.getElementById("output").innerHTML = number + " and " + testnumber + " are amicable! :)";
+	}else{
+		document.getElementById("output").innerHTML = number + " and " + testnumber + " are NOT amicable :(";
+	}
+
+}
+
+
+function isFactor(number, testnumber)
+{
+	if ((number % testnumber) == 0){
+		return true;
+	}else {
+		return false;
+	}
+
+}
+
+function test_isFactor(){
+
+	var array_testisFactor = new Array(10);
+
+	// Store test values in an array 
+	array_testisFactor[0] = (isFactor(10,2));     //true
+	array_testisFactor[1] = (isFactor(3,2));      //false
+	array_testisFactor[2] = (isFactor(1,1));      //true
+	array_testisFactor[3] = (isFactor(0,7));      //true
+	array_testisFactor[4] = (isFactor(8,0));      //false
+	array_testisFactor[5] = (isFactor(2,10));     //false
+	array_testisFactor[6] = (isFactor(5,10));     //false
+	array_testisFactor[7] = (isFactor(10,5));     //true
+	array_testisFactor[8] = (isFactor(22,11));    //true
+	array_testisFactor[9] = (isFactor(220,284));  //false
+
+	// Display the values and see if it matches expected value
+	for (i = 0; i < array_testisFactor.length; i++){
+		document.write(array_testisFactor[i] + " ");
+	}
+
+	// Test for showFactors using the test array
+	// Same output as above
+	// showFactors(array_testisFactor);
+
+
+}
+
+function showFactors(numarrays)
+{
+	for (i = 0; i < numarrays.length; i++){
+		document.write(numarrays[i]);
+	}
+
+}
+
+function addFactors(numarrays)
+{
+	var sum = 0;
+	for (i = 0; i < numarrays.length; i++){
+		sum += numarrays[i];
+	}
+	return sum;
+}
+
+function test_addFactors()
+{
+	var testa1 = new Array(3);
+	testa1[0] = 1;
+	testa1[1] = 1;	 
+	testa1[2] = 1;
+	document.write(addFactors(testa1) + " ");  //3
+
+	var testa2 = new Array(2);
+	testa2[0] = 14;
+	testa2[1] = 10;
+	document.write(addFactors(testa2));  //24
+
+}
+
+function getFactors(numb)
+{
+	var factorlist = new Array();
+	var temp = 0;
+	for (i = 0; i < numb; i++){
+		if (isFactor(numb, i)){
+			factorlist.push(i);
+		}
+	}
+
+	return factorlist;
+
+}
+
+function test_getFactors()
+{
+	document.write(getFactors(220) + " ");
+	document.write(getFactors(284) + " ");
+	document.write(getFactors(1) + " ");
+	document.write(getFactors(0) + " ");
+	document.write(getFactors(100) + " ");
+	document.write(getFactors(73) + " ");
+	document.write(getFactors(199) + " ");
+	document.write(getFactors(45) + " ");
+
+}
+
+</script>
+
+</body>
+</html>

@@ -41,8 +41,8 @@
 
 <script language = "javascript">
 
-// Create array with 6 numbers
-var numbers = new Array(6);
+// Create array with 5 numbers
+var numbers = new Array(5);
 var sorted = new Array(5);
 var temp = new Array();
 
@@ -52,7 +52,9 @@ for (i = 0; i < numbers.length - 1; i++){
 }
 
 // Create sorted array first to easily check for duplicates
-sorted = numbers.sort(function(a, b){return a-b});
+sorted = numbers;
+sorted.sort(function(a, b){return a-b});
+
 
 // Check if no duplicates; change one if there is
 // Get value to change in nonsorted array
@@ -74,6 +76,7 @@ for (i = 0; i < numbers.length - 1; i++){
 	}
 }
 
+
 // Create a copy array for comparison later
 for (i = 0; i < numbers.length - 1; i++){
 	temp[i] = numbers[i];
@@ -81,15 +84,15 @@ for (i = 0; i < numbers.length - 1; i++){
 
 // Lucky ball: 1 random number from 1 to 18 
 var luckyball = (Math.round(Math.random() * 17 + 1))
-numbers[5] = luckyball;
 document.getElementById("headerlottonums").innerHTML = "Lotto Numbers: ";
-document.getElementById("lottonums").innerHTML = numbers;
+document.getElementById("lottonums").innerHTML = numbers + "," + luckyball;
 
 
 // print sorted array 
+// lucky ball does not need to be sorted thus written at the end
 sorted.sort(function(a, b){return a-b});
 document.getElementById("sortedlottonums").innerHTML = "Sorted Lotto Numbers: ";
-document.getElementById("slottonums").innerHTML = sorted;
+document.getElementById("slottonums").innerHTML = sorted + "," + luckyball;
 
 
 function processData()
